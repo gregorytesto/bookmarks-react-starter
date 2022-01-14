@@ -8,22 +8,22 @@ function Bookmarks() {
   const [bookmarks, setBookmarks] = useState([]);
   useEffect(()=>{
     // http://www.localhost:3003/bookmarks
-    // axios.get(API_URL + "/bookmarks")
-    //   .then((res)=>{
-    //     setBookmarks(res.data);
-    //   }).catch((err)=>{
-    //     throw err;
-    //   });
+    axios.get(API_URL + "/bookmarks")
+      .then((res)=>{
+        setBookmarks(res.data);
+      }).catch((err)=>{
+        throw err;
+      });
     
 
-    fetch(API_URL + "/bookmarks")
-      .then((res)=>{
-        return res.json();
-      }).then((data)=>{
-        setBookmarks(data);
-      }).catch((err)=> {
-        throw err
-      });
+    // fetch(API_URL + "/bookmarks")
+    //   .then((res)=>{
+    //     return res.json();
+    //   }).then((data)=>{
+    //     setBookmarks(data);
+    //   }).catch((err)=> {
+    //     throw err
+    //   });
   }, []);
 
   return (
